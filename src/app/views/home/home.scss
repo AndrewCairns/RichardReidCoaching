@@ -1,0 +1,11 @@
+section.home-body {
+  min-height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 70%;
+  }
+}

@@ -1,0 +1,15 @@
+section.about-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  min-height: 70vh;
+}
+
+section.about-view img {
+  width: 70%;
+
+  @media screen and (max-width: $small) {
+    width: 40%;
+  }
+}

@@ -1,0 +1,28 @@
+.blog-view {
+  .blog-header {
+    margin-bottom: 4rem;
+    font-size: 9rem;
+    text-decoration: underline;
+    background: #6bd2ec;
+    color: white;
+    padding: 3rem 4rem;
+    @media screen and (max-width: $small) {
+      padding: 2rem 1rem;
+    }
+  }
+
+  .blog-post {
+    padding: 2rem;
+    margin: 2rem;
+    border-bottom: 2px solid $base-grey-1;
+
+    @media screen and (max-width: $small) {
+      padding: 1rem;
+      margin: 0;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
