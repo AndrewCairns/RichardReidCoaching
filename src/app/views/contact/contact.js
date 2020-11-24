@@ -37,7 +37,12 @@ function Contact() {
               seeking support, please get in touch
             </p>
 
-            <form name="contact" method="post" onSubmit={handleSubmit}>
+            <form
+              name="contact"
+              method="post"
+              data-netlify="true"
+              onSubmit={handleSubmit}
+            >
               <div className="input-element">
                 <label htmlFor="name-input">Your Name:</label>
                 <input
