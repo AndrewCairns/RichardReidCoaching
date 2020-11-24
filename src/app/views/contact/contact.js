@@ -42,7 +42,7 @@ function Contact() {
             </p>
 
             <form
-              action="/success"
+              action="/success/"
               name="contact"
               method="post"
               onSubmit={handleSubmit}
