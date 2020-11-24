@@ -1,6 +1,5 @@
 import React from "react";
 import { Col, Grid, Row } from "react-flexbox-grid";
-import coachingImg from "../../../assets/images/coaching.jpg";
 
 function Contact() {
   return (
@@ -46,6 +45,7 @@ function Contact() {
           </Col>
           <Col xs={12} sm={12} md={6} lg={6}>
             <iframe
+              title="map-to-location"
               style={{ border: 0 }}
               src="https://www.google.com/maps/embed/v1/place?q=place_id:EioxMiBCYWxseW1hY29ybWljayBSZCwgRHJvbW9yZSBCVDI1IDFRUSwgVUsiMBIuChQKEgnNv90wDB1hSBGoP7X8Co7otRAMKhQKEgmjqnFYAh1hSBHCosOjbyuCfg&key=AIzaSyCmc0M3Z_blpx0bU3bGGPcAiz3Iv04zNZg"
             ></iframe>

@@ -5,7 +5,7 @@ import characters from "../../../assets/images/characters.png";
 var parseString = require("xml2js").parseString;
 
 function RSSFeed() {
-  let [feed, setFeed] = useState({ title: "", items: [] });
+  let [feed, setFeed] = useState({ title: "RSS Feed", items: [] });
 
   useEffect(() => {
     const RSS_URL = `https://cors-anywhere.herokuapp.com/https://feeds.buzzsprout.com/1451593.rss`;
@@ -14,7 +14,7 @@ function RSSFeed() {
       .then((response) => response.text())
       .then((data) => {
         parseString(data, function (err, result) {
-          setFeed((feed = result.rss.channel[0].item));
+          setFeed({ items: result.rss.channel[0].item });
         });
       });
   }, []);
@@ -26,14 +26,15 @@ function RSSFeed() {
         <a
           className="listen__item listen__item--spotify"
           target="_blank"
+          rel="noreferrer"
           href="https://open.spotify.com/show/6kXxWZMn5noYw1D80vSDPa"
         >
           Spotify
         </a>
       </div>
 
-      {feed.length &&
-        feed.map((item) => {
+      {feed.items.length &&
+        feed.items.map((item) => {
           const regex = /(<([^>]+)>)/gi;
 
           return (
