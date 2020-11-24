@@ -8,17 +8,16 @@ const encode = (data) => {
 };
 
 function Contact() {
-  let [messageObject, setMessage] = useState({
-    name: "" || "",
-    email: "" || "",
-    message: "" || "",
-  });
+  let [messageObject, setMessage] = useState({});
 
   function handleChange(e) {
-    setMessage({ [e.target.name]: e.target.value });
+    setMessage({
+      ...messageObject,
+      [e.target.name]: e.target.value,
+    });
   }
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     console.log("GOT HERE");
@@ -29,7 +28,7 @@ function Contact() {
     })
       .then(() => alert("Success!"))
       .catch((error) => alert(error));
-  }
+  };
 
   return (
     <section className="contact-body u-pt-gi">
@@ -46,9 +45,8 @@ function Contact() {
               <div className="input-element">
                 <label htmlFor="name-input">Your Name:</label>
                 <input
-                  name="demo"
+                  name="name"
                   id="name-input"
-                  value={messageObject.name}
                   placeholder="enter..."
                   onChange={handleChange}
                 />
@@ -57,9 +55,8 @@ function Contact() {
               <div className="input-element">
                 <label htmlFor="email-input">Your Email:</label>
                 <input
-                  name="demo"
+                  name="email"
                   type="email"
-                  value={messageObject.email}
                   id="email-input"
                   placeholder="example@example.com"
                   onChange={handleChange}
@@ -70,7 +67,6 @@ function Contact() {
                 <label htmlFor="message-input">Your Message:</label>
                 <textarea
                   name="message"
-                  value={messageObject.message}
                   id="message-input"
                   placeholder="Start your message here..."
                   onChange={handleChange}
