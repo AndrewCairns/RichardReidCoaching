@@ -5,6 +5,7 @@ import About from "./app/views/about/about";
 import Coaching from "./app/views/coaching/coaching";
 import Blog from "./app/views/blog/blog";
 import Contact from "./app/views/contact/contact";
+import Success from "./app/views/contact/success";
 import "./App.scss";
 import logo from "./assets/images/logo.png";
 
@@ -46,6 +47,7 @@ function App() {
             <Route exact path="/coaching" component={Coaching} />
             <Route exact path="/blog" component={Blog} />
             <Route exact path="/contact" component={Contact} />
+            <Route exact path="/success" component={Success} />
           </Switch>
         </div>
         <footer className="u-p-gi">

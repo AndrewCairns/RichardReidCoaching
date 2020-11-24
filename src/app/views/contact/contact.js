@@ -1,12 +1,6 @@
 import React, { useState } from "react";
 import { Col, Grid, Row } from "react-flexbox-grid";
 
-const encode = (data) => {
-  return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
-};
-
 function Contact() {
   let [messageObject, setMessage] = useState({});
 
@@ -16,11 +10,15 @@ function Contact() {
       [e.target.name]: e.target.value,
     });
   }
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+      )
+      .join("&");
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("here");
-
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -28,6 +26,8 @@ function Contact() {
     })
       .then(() => alert("Success!"))
       .catch((error) => alert(error));
+
+    e.preventDefault();
   };
 
   return (
@@ -42,7 +42,7 @@ function Contact() {
             </p>
 
             <form
-              data-netlify="true"
+              action="/"
               name="contact"
               method="post"
               onSubmit={handleSubmit}
