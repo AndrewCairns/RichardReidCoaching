@@ -8,22 +8,27 @@ const encode = (data) => {
 };
 
 function Contact() {
-  let [message, setMessage] = useState({ name: "", email: "", message: "" });
+  let [messageObject, setMessage] = useState({
+    name: "" || "",
+    email: "" || "",
+    message: "" || "",
+  });
 
   function handleChange(e) {
     setMessage({ [e.target.name]: e.target.value });
   }
 
   function handleSubmit(e) {
+    e.preventDefault();
+
+    console.log("GOT HERE");
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...this.state }),
+      body: encode({ "form-name": "contact", ...messageObject }),
     })
       .then(() => alert("Success!"))
       .catch((error) => alert(error));
-
-    e.preventDefault();
   }
 
   return (
@@ -37,18 +42,13 @@ function Contact() {
               seeking support, please get in touch
             </p>
 
-            <form
-              name="contact"
-              method="post"
-              data-netlify="true"
-              onSubmit={handleSubmit}
-            >
+            <form name="contact" method="post" onSubmit={handleSubmit}>
               <div className="input-element">
                 <label htmlFor="name-input">Your Name:</label>
                 <input
                   name="demo"
                   id="name-input"
-                  value={message.name}
+                  value={messageObject.name}
                   placeholder="enter..."
                   onChange={handleChange}
                 />
@@ -59,7 +59,7 @@ function Contact() {
                 <input
                   name="demo"
                   type="email"
-                  value={message.email}
+                  value={messageObject.email}
                   id="email-input"
                   placeholder="example@example.com"
                   onChange={handleChange}
@@ -70,7 +70,7 @@ function Contact() {
                 <label htmlFor="message-input">Your Message:</label>
                 <textarea
                   name="message"
-                  value={message.message}
+                  value={messageObject.message}
                   id="message-input"
                   placeholder="Start your message here..."
                   onChange={handleChange}
