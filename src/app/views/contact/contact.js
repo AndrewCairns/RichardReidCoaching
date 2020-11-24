@@ -1,7 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Grid, Row } from "react-flexbox-grid";
 
+const encode = (data) => {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+};
+
 function Contact() {
+  let [message, setMessage] = useState({ name: "", email: "", message: "" });
+
+  function handleChange(e) {
+    setMessage({ [e.target.name]: e.target.value });
+  }
+
+  function handleSubmit(e) {
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", ...this.state }),
+    })
+      .then(() => alert("Success!"))
+      .catch((error) => alert(error));
+
+    e.preventDefault();
+  }
+
   return (
     <section className="contact-body u-pt-gi">
       <Grid>
@@ -13,10 +37,16 @@ function Contact() {
               seeking support, please get in touch
             </p>
 
-            <form name="contact" method="post">
+            <form name="contact" onSubmit={handleSubmit}>
               <div className="input-element">
                 <label htmlFor="name-input">Your Name:</label>
-                <input name="demo" id="name-input" placeholder="enter..." />
+                <input
+                  name="demo"
+                  id="name-input"
+                  value={message.name}
+                  placeholder="enter..."
+                  onChange={handleChange}
+                />
               </div>
 
               <div className="input-element">
@@ -24,8 +54,10 @@ function Contact() {
                 <input
                   name="demo"
                   type="email"
+                  value={message.email}
                   id="email-input"
                   placeholder="example@example.com"
+                  onChange={handleChange}
                 />
               </div>
 
@@ -33,8 +65,10 @@ function Contact() {
                 <label htmlFor="message-input">Your Message:</label>
                 <textarea
                   name="message"
+                  value={message.message}
                   id="message-input"
                   placeholder="Start your message here..."
+                  onChange={handleChange}
                 ></textarea>
               </div>
 
