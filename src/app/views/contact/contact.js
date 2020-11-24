@@ -19,8 +19,8 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("here");
 
-    console.log("GOT HERE");
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -41,7 +41,14 @@ function Contact() {
               seeking support, please get in touch
             </p>
 
-            <form name="contact" method="post" onSubmit={handleSubmit}>
+            <form
+              data-netlify="true"
+              name="contact"
+              method="post"
+              onSubmit={handleSubmit}
+            >
+              <input type="hidden" name="form-name" value="contact" />
+
               <div className="input-element">
                 <label htmlFor="name-input">Your Name:</label>
                 <input

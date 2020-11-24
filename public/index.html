@@ -31,10 +31,17 @@
     <div id="root"></div>
 
     <!-- A little help for the Netlify bots if you're not using a SSG -->
-    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+    <form
+      name="contact"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      method="POST"
+      hidden
+    >
       <input type="text" name="name" />
       <input type="email" name="email" />
       <textarea name="message"></textarea>
+      <button type="submit">Send</button>
     </form>
 
     <!--
