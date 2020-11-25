@@ -3,6 +3,7 @@ import { Col, Grid, Row } from "react-flexbox-grid";
 
 function Contact() {
   let [messageObject, setMessage] = useState({});
+  const [showResults, setShowResults] = useState(true);
 
   function handleChange(e) {
     setMessage({
@@ -18,13 +19,15 @@ function Contact() {
       .join("&");
   };
 
-  const handleSubmit = (e) => {
+  const HandleSubmit = (e) => {
+    setShowResults(false);
+
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "contact", ...messageObject }),
     })
-      .then(() => alert("Success!"))
+      .then(() => alert("Success! Your message has been sent"))
       .catch((error) => alert(error));
 
     e.preventDefault();
@@ -41,49 +44,56 @@ function Contact() {
               seeking support, please get in touch
             </p>
 
-            <form
-              action="/success/"
-              name="contact"
-              method="post"
-              onSubmit={handleSubmit}
-            >
-              <input type="hidden" name="form-name" value="contact" />
+            {showResults ? (
+              <form
+                action="/success/"
+                name="contact"
+                method="post"
+                onSubmit={HandleSubmit}
+              >
+                <input type="hidden" name="form-name" value="contact" />
 
-              <div className="input-element">
-                <label htmlFor="name-input">Your Name:</label>
-                <input
-                  name="name"
-                  id="name-input"
-                  placeholder="enter..."
-                  onChange={handleChange}
-                />
+                <div className="input-element">
+                  <label htmlFor="name-input">Your Name:</label>
+                  <input
+                    name="name"
+                    id="name-input"
+                    placeholder="enter..."
+                    onChange={handleChange}
+                  />
+                </div>
+
+                <div className="input-element">
+                  <label htmlFor="email-input">Your Email:</label>
+                  <input
+                    name="email"
+                    type="email"
+                    id="email-input"
+                    placeholder="example@example.com"
+                    onChange={handleChange}
+                  />
+                </div>
+
+                <div className="input-element">
+                  <label htmlFor="message-input">Your Message:</label>
+                  <textarea
+                    name="message"
+                    id="message-input"
+                    placeholder="Start your message here..."
+                    onChange={handleChange}
+                  ></textarea>
+                </div>
+
+                <button className="btn" type="submit">
+                  Send
+                </button>
+              </form>
+            ) : (
+              <div className="u-pv-gi">
+                <h1>Success!</h1>
+                <p>Your message has been sent. We will be in touch ASAP</p>
               </div>
-
-              <div className="input-element">
-                <label htmlFor="email-input">Your Email:</label>
-                <input
-                  name="email"
-                  type="email"
-                  id="email-input"
-                  placeholder="example@example.com"
-                  onChange={handleChange}
-                />
-              </div>
-
-              <div className="input-element">
-                <label htmlFor="message-input">Your Message:</label>
-                <textarea
-                  name="message"
-                  id="message-input"
-                  placeholder="Start your message here..."
-                  onChange={handleChange}
-                ></textarea>
-              </div>
-
-              <button className="btn" type="submit">
-                Send
-              </button>
-            </form>
+            )}
           </Col>
           <Col xs={12} sm={12} md={6} lg={6}>
             <iframe
