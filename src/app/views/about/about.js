@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid, Row, Col } from "react-flexbox-grid";
-import logo from "../../../assets/images/logo.png";
+import logo from "../../../assets/images/RRC-Icon.png";
 
 function About() {
   return (

@@ -4,10 +4,11 @@ import Home from "./app/views/home/home";
 import About from "./app/views/about/about";
 import Coaching from "./app/views/coaching/coaching";
 import Blog from "./app/views/blog/blog";
+import Podcast from "./app/views/podcast/podcast";
 import Contact from "./app/views/contact/contact";
 import Success from "./app/views/contact/success";
 import "./App.scss";
-import logo from "./assets/images/logo.png";
+import logo from "./assets/images/RRC-Icon.png";
 
 function App() {
   var getDate = new Date();
@@ -31,7 +32,7 @@ function App() {
                 <Link to="/coaching">Coaching</Link>
               </li>
               <li>
-                <Link to="/blog">Blog</Link>
+                <Link to="/podcast">Podcasts</Link>
               </li>
               <li>
                 <Link to="/contact">Contact</Link>
@@ -45,6 +46,7 @@ function App() {
             <Route exact path="/home" component={Home} />
             <Route exact path="/about" component={About} />
             <Route exact path="/coaching" component={Coaching} />
+            <Route exact path="/podcast" component={Podcast} />
             <Route exact path="/blog" component={Blog} />
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/success" component={Success} />

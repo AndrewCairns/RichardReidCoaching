@@ -40,8 +40,7 @@ function Contact() {
           <Col xs={12} sm={12} md={6} lg={6}>
             <h1>Get in touch</h1>
             <p>
-              If you would like to find out more, join the podcast or are
-              seeking support, please get in touch
+              If you would like to start a conversation please get in touch.
             </p>
 
             {showResults ? (
