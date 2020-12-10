@@ -21,8 +21,12 @@ function RSSFeed() {
 
   return (
     <div>
-      <div className="flex-center u-p-gi">
-        <img src={podcastLogo} alt="Richard Reid Coaching" />
+      <div className="flex-center u-pb-gi">
+        <img
+          className="podcast-logo"
+          src={podcastLogo}
+          alt="Richard Reid Coaching"
+        />
       </div>
 
       <div className="RSS-title">
@@ -63,10 +67,10 @@ function RSSFeed() {
 
 function Podcast() {
   return (
-    <section className="home-body u-pt-gi">
+    <section>
       <Grid fluid>
         <Row>
-          <Col xs={12} sm={12} md={12} lg={12} className="u-pt-gi">
+          <Col xs={12} sm={12} md={12} lg={12}>
             <div className="RSS-body">
               <RSSFeed />
             </div>

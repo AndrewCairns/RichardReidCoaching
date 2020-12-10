@@ -5,13 +5,12 @@ import characters from "../../../assets/images/RRC-Icon.png";
 
 function Coaching() {
   return (
-    <section className="home-body u-pt-gi">
+    <section className="home-body">
       <Grid fluid>
         <Row center="xs">
-          <Col xs={12} sm={12} md={10} lg={10} className="u-pt-gi">
+          <Col xs={12} sm={12} md={10} lg={10} className="">
             <div className="txt-align-left">
               <h1>Coaching</h1>
-              <h3>Coaching is:</h3>
               <ul>
                 <li>Is a structured conversation between you and your coach</li>
                 <li>Is completely confidential</li>

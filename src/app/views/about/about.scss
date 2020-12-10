@@ -4,12 +4,13 @@ section.about-view {
   justify-content: center;
   align-self: center;
   min-height: 70vh;
+  padding-top: 2rem;
+
+  @media screen and (max-width: $small) {
+    padding-top: 0;
+  }
 }
 
 section.about-view img {
-  width: 70%;
-
-  @media screen and (max-width: $small) {
-    width: 40%;
-  }
+  width: 100%;
 }

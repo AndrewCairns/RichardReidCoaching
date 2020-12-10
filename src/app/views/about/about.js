@@ -4,12 +4,15 @@ import headshot from "../../../assets/images/headshot.JPG";
 
 function About() {
   return (
-    <section className="about-view u-pt-gi">
+    <section className="about-view">
       <Grid fluid>
         <Row center="xs">
-          <Col xs={12} sm={12} md={10} lg={10} className="u-pt-gi">
+          <Col xs={12} sm={12} md={12} lg={12} className="u-pt-gi">
+            <h1 className="txt-align-left">About Me:</h1>
+            <img className="img-grow" src={headshot} alt="Richard Reid" />
+          </Col>
+          <Col xs={12} sm={12} md={12} lg={12} className="u-pt-gi">
             <div className="txt-align-left">
-              <h1>Richard Reid Coaching</h1>
               <h3>This is a snapshot of my first 21 years in education:</h3>
               <p>
                 In 2000 I qualified as a primary school teacher and taught KS2
@@ -65,7 +68,9 @@ function About() {
                 And the goal for my next 21 years in education: ‘Let’s have even
                 better conversations’.
               </h3>
-
+              <br />
+              <br />
+              <br />
               <h1 className="u-pt-gi">Testimonials</h1>
               <p>
                 Richard is an excellent coach who you really feel is listening
@@ -88,13 +93,12 @@ function About() {
                 with Richard to anyone! <em> - Neal McDowell, KS2 Teacher</em>
               </p>
             </div>
-          </Col>
-          <Col xs={12} sm={12} md={12} lg={12} className="u-pv-gi flex-center">
-            <img
-              className="img-grow u-pb-gi"
-              src={headshot}
-              alt="Richard Reid"
-            />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
           </Col>
         </Row>
       </Grid>
