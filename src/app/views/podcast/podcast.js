@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Grid, Row, Col } from "react-flexbox-grid";
+import podcastLogo from "../../../assets/images/podcast-logo.png";
 
 var parseString = require("xml2js").parseString;
 
@@ -20,6 +21,10 @@ function RSSFeed() {
 
   return (
     <div>
+      <div className="flex-center u-p-gi">
+        <img src={podcastLogo} alt="Richard Reid Coaching" />
+      </div>
+
       <div className="RSS-title">
         <h1>Recent recordings</h1>
         <a

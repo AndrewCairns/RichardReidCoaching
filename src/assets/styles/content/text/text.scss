@@ -17,6 +17,7 @@ h3 {
   padding: 0.5rem;
   font-size: 1.17rem;
   color: $primary-text-color;
+  line-height: 1.75rem;
 }
 
 h4 {
@@ -62,4 +63,22 @@ a {
 
 a:hover {
   border-bottom: 5px solid $secondary-text-color;
+}
+
+ul {
+  font-size: 1rem;
+  color: $primary-text-color;
+  line-height: 1.5rem;
+}
+
+.txt-align-left {
+  text-align: left;
+}
+
+.txt-align-center {
+  text-align: center;
+}
+
+.txt-align-right {
+  text-align: right;
 }
