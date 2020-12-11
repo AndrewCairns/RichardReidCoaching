@@ -48,8 +48,8 @@ function Coaching() {
               </ul>
 
               <h3 className="u-p-lg">
-                If you want to find out more about coaching in have a look at my
-                <Link to="/podcast"> podcast</Link> page where there are a
+                If you want to find out more about coaching have a look at my
+                <Link to="/podcast"> podcast page</Link> where there are a
                 number of episodes which focus on the whole area of coaching
                 within education.
               </h3>
