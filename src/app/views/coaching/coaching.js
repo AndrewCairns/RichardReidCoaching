@@ -2,13 +2,21 @@ import React from "react";
 import { Grid, Row, Col } from "react-flexbox-grid";
 import { Link } from "react-router-dom";
 import characters from "../../../assets/images/RRC-Icon.png";
+import coaching_infographic from "../../../assets/images/Coaching_infographic.png";
 
 function Coaching() {
   return (
     <section className="home-body">
       <Grid fluid>
         <Row center="xs">
-          <Col xs={12} sm={12} md={10} lg={10} className="">
+          <Col xs={12} sm={12} md={10} lg={10}>
+            <div className="flex-center u-p-gi">
+              <img src={coaching_infographic} alt="Richard Reid Coaching" />
+            </div>
+          </Col>
+        </Row>
+        <Row center="xs">
+          <Col xs={12} sm={12} md={10} lg={10}>
             <div className="txt-align-left">
               <h1>Coaching</h1>
               <ul>
